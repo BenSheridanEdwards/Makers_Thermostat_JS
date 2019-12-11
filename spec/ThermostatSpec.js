@@ -22,3 +22,4 @@ describe('Thermostat', function() {
       expect(thermostat.temperature).toEqual(19);
     });
 });
+
