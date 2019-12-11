@@ -7,8 +7,10 @@ Thermostat.prototype.temperature = function() {
   return this.temperature;
 };
 
-// Thermostat.prototype.increase = function() {
-//   return this.temperature += 1;
-// };
+ Thermostat.prototype.increase = function() {
+   this.temperature += 1
+ };
 
-// Thermostat.prototype.decrease = function(degrees) {
+Thermostat.prototype.decrease = function() {
+   this.temperature -= 1
+};
