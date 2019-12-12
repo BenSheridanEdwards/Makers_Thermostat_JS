@@ -36,3 +36,13 @@ Thermostat.prototype.isPowerSavingModeOn = function() {
 Thermostat.prototype.switchPowerSavingModeOff = function() {
   this.powerSavingMode = false;
 };
+
+Thermostat.prototype.energy_usage = function() {
+  if (this.temperature < 18 ) {
+    return "Low-usage";
+  } else if (this.temperature < 25) {
+    return "Medium-usage";
+  } else if (this.temperature >= 25) {
+    return "High-usage";
+  };
+};

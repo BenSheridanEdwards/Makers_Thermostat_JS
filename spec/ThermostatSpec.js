@@ -43,4 +43,32 @@ describe('Thermostat', function() {
       thermostat.switchPowerSavingModeOff();
       expect(thermostat.isPowerSavingModeOn()).toBe(false)
     });
+
+    it("can return the thermostats current energy usage", function(){
+      expect(thermostat.energy_usage()).toContain("usage")
+    });
+
+    describe("when the thermostats temperature is below 18", function() {
+      it("returns Low-usage", function() {
+      for (var i = 0; i < 5; i++) {
+        thermostat.decrease();
+      }
+      expect(thermostat.energy_usage()).toEqual("Low-usage")
+      });
+    });
+
+    describe("when the thermostats temperature is below 18", function() {
+      it("returns Medium-usage", function() {
+      expect(thermostat.energy_usage()).toEqual("Medium-usage")
+      });
+    });
+    
+    describe("when the thermostats temperature is below 18", function() {
+      it("returns High-usage", function() {
+      for (var i = 0; i < 5; i++) {
+        thermostat.increase();
+      }
+      expect(thermostat.energy_usage()).toEqual("High-usage")
+      });
+    });
 });
