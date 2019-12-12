@@ -2,15 +2,28 @@
 
 function Thermostat() {
   this.temperature = 20;
-}
+  this.MINIMUM_TEMPERATURE = 10;
+  this.powerSavingMode = true;
+};
 Thermostat.prototype.temperature = function() {
   return this.temperature;
 };
 
  Thermostat.prototype.increase = function() {
-   this.temperature += 1
+   this.temperature += 1;
  };
 
 Thermostat.prototype.decrease = function() {
-   this.temperature -= 1
+  if (this.isMinimumTemperature()) {
+    return;
+  };
+  this.temperature -= 1;
 };
+
+Thermostat.prototype.isMinimumTemperature = function() {
+  return this.temperature === this.MINIMUM_TEMPERATURE;
+};
+
+Thermostat.prototype.isPowerSavingModeOn = function() {
+  return this.powerSavingMode === true; 
+}
