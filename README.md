@@ -20,9 +20,9 @@ Clone the repository from github then change directory into it.
 ```
 $ git clone git@github.com:BenSheridanEdwards/Makers_Thermostat_JS.git
 $ cd Makers_Thermostat_JS
+```
 
-To run the tests, please download Jasmine, you can download the standalone from [here](https://github.com/jasmine/jasmine/releases), or if you've using a mac with homebrew installed
-:
+To run the tests, please download Jasmine, you can download the standalone from [here](https://github.com/jasmine/jasmine/releases), or if you've using a mac with homebrew installed:
 
 ```
 brew install jasmine
