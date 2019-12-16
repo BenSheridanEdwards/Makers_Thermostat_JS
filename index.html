@@ -4,6 +4,7 @@
     <title>My Thermostat</title>
   </head>
   <body>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <section>
       <h1 id="temperature"></h1>
       <p>
@@ -15,6 +16,52 @@
         <button id="powersaving-off">PSM off</button>
       </p>
     </section>
-    <script src="js/thermostat.js"></script>
+    <script src="src/thermostat.js"></script>
+    <script>
+    $(document).ready(function() { 
+
+     var thermostat = new Thermostat();
+     updateTemperature()
+
+     $('#temperature-increase').on('click', function() {
+       thermostat.increase();
+       updateTemperature()
+     })
+
+     $('#temperature-decrease').on('click', function() {
+       thermostat.decrease();
+       updateTemperature()
+     });
+
+     $('#temperature-reset').on('click',function() {
+       thermostat.reset();
+       updateTemperature()
+     })
+
+     $('#powersaving-on').on('click', function(){
+       thermostat.switchPowerSavingModeOn()
+       $('#power-saving-status').text('on')
+       updateTemperature()
+     })
+
+     $('#powersaving-off').on('click', function(){
+       thermostat.switchPowerSavingModeOff()
+       $('#power-saving-status').text('off')
+       updateTemperature()
+     })
+
+     function updateTemperature() {
+      $('#temperature').text('Temperature: ' + thermostat.temperature)
+      if(thermostat.energyUsage() === 'Low-usage') {
+        $('#temperature').css('color', 'green')
+      } else if (thermostat.energyUsage() === 'Medium-usage') {
+        $('#temperature').css('color', 'orange')
+      } else if (thermostat.energyUsage() === 'High-usage') {
+        $('#temperature').css('color', 'red')
+      }
+    };
+
+    });
+    </script>
   </body>
 </html>

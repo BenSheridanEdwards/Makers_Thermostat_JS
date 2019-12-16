@@ -52,7 +52,7 @@ describe('Thermostat', function() {
     });
 
     it("can return the thermostats current energy usage", function(){
-      expect(thermostat.energy_usage()).toContain("usage")
+      expect(thermostat.energyUsage()).toContain("usage")
     });
 
     describe("when the thermostats temperature is below 18", function() {
@@ -60,13 +60,13 @@ describe('Thermostat', function() {
       for (var i = 0; i < 5; i++) {
         thermostat.decrease();
       }
-      expect(thermostat.energy_usage()).toEqual("Low-usage")
+      expect(thermostat.energyUsage()).toEqual("Low-usage")
       });
     });
 
     describe("when the thermostats temperature is between 18 and 25", function() {
       it("returns Medium-usage", function() {
-      expect(thermostat.energy_usage()).toEqual("Medium-usage")
+      expect(thermostat.energyUsage()).toEqual("Medium-usage")
       });
     });
 
@@ -75,7 +75,7 @@ describe('Thermostat', function() {
       for (var i = 0; i < 6; i++) {
         thermostat.increase();
       }
-      expect(thermostat.energy_usage()).toEqual("High-usage")
+      expect(thermostat.energyUsage()).toEqual("High-usage")
       });
     });
 });
